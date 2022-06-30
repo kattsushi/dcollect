@@ -3,17 +3,17 @@
 </script>
 
 <script lang="ts">
-	import AuthLogin from '$lib/auth/login.svelte';
+	import AuthRegister from '$lib/auth/register.svelte';
 </script>
 
 <svelte:head>
-	<title>Login Dcollect App</title>
+	<title>Register new Account Dcollect App</title>
 	<meta name="description" content="Dcollect App" />
 </svelte:head>
 
   <!-- ... -->
 
-	<AuthLogin />
+	<AuthRegister />
 
 <style>
 	
