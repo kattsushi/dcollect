@@ -1,6 +1,6 @@
 <script lang="ts">
 import Drawer from '$lib/shared/drawer/drawer.svelte';
-import '../../app.css';
+import '../../../app.css';
 </script>
 <Drawer>
       <!-- Page content here -->

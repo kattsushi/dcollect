@@ -2,7 +2,7 @@
   export const prerender = true;
 </script>
 <script>
-import Dashboard from "$lib/Dashboard/dashboard.svelte";
+import Dashboard from "$lib/dashboard/dashboard.svelte";
 
 </script>
 

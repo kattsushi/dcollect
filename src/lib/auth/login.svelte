@@ -1,5 +1,6 @@
 <script lang="ts">
   import Form from '$lib/shared/form/Form.svelte';
+  import { goto } from '$app/navigation';
   const form_name: string = 'LoginForm';
   const fields = [
     {
@@ -30,6 +31,7 @@
 
   function onSubmit(data: any) {
     console.log('data', data);
+    goto(`/admin`, { replaceState: true }) 
   }
 </script>
 <Form
