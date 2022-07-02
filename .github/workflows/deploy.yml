@@ -34,7 +34,7 @@ jobs:
         run: npm run build
       - uses: UnlyEd/github-action-deploy-on-vercel@latest
         with:
-          command: "vercel build --confirm --debug --token ${{ secrets.VERCEL_TOKEN }}"
+          command: "vercel .vercel_build_output --confirm --debug --token ${{ secrets.VERCEL_TOKEN }}"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 

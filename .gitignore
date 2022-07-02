@@ -9,3 +9,5 @@ node_modules
 .vercel
 .output
 build
+.vercel_build_output
+.vercel.json

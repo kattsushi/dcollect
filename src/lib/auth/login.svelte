@@ -30,7 +30,6 @@
   ];
 
   function onSubmit(data: any) {
-    console.log('data', data);
     goto(`/admin`, { replaceState: true }) 
   }
 </script>
