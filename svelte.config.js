@@ -1,5 +1,6 @@
 // import adapter from '@sveltejs/adapter-auto';
-import expressAdapter from "@mankins/svelte-adapter-express"
+// import expressAdapter from "@mankins/svelte-adapter-express"
+import vercel from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -11,7 +12,10 @@ const config = {
 	}),
 
 	kit: {
-		adapter: expressAdapter(),
+		adapter: vercel({
+			edge: false,
+			split: false
+		}),
 
 		// Override http methods in the Todo forms
 		methodOverride: {
