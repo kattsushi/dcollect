@@ -9,10 +9,12 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: adapter(),
+	preprocess: preprocess({
+		postcss: true,
+	}),
 
 	kit: {
-		adapter: node({ env: { port: process.env.PORT } }),
+		adapter: adapter(),
 
 		// Override http methods in the Todo forms
 		methodOverride: {

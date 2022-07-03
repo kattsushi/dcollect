@@ -41,7 +41,6 @@ const form_name: string = 'LoginForm';
   ];
 
   function onSubmit(data: any) {
-    console.log('data', data);
   }
 </script>
 

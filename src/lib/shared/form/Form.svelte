@@ -24,7 +24,6 @@
     }
     onSubmitForm(data)
   }
-  console.log(fields, form_name)
 </script>
 
 <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
