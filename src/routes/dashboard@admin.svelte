@@ -1,8 +1,8 @@
 <script context=module>
-  export const prerender = true;
+  export const prerender = false;
 </script>
 <script>
-import Dashboard from "$lib/dashboard/dashboard.svelte";
+import Dashboard from "$lib/main/main.svelte";
 
 </script>
 
