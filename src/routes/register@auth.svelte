@@ -11,10 +11,9 @@
 	<meta name="description" content="Dcollect App" />
 </svelte:head>
 
-  <!-- ... -->
+<!-- ... -->
 
-	<AuthRegister />
+<AuthRegister />
 
 <style>
-	
 </style>

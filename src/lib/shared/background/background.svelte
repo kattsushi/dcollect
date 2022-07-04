@@ -2,7 +2,7 @@
 	<!--Content before waves-->
 	<div class="inner-header flex">
 		<!--Just the logo.. Don't mind this-->
-		<slot></slot>
+		<slot />
 	</div>
 
 	<!--Waves Container-->
