@@ -1,6 +1,15 @@
 <script lang="ts">
+	import { todoSelectors, login } from './store';
+
+	import { store, useSelector } from './../../store';
+
+	$: todoList = useSelector(todoSelectors.todos, (newList: any) => (todoList = newList));
+	$: todoListLoading = useSelector(
+		todoSelectors.loading,
+		(newLoading: any) => (todoListLoading = newLoading)
+	);
+
 	import Form from '$lib/shared/form/Form.svelte';
-	import { goto } from '$app/navigation';
 	const form_name: string = 'LoginForm';
 	const fields = [
 		{
@@ -30,7 +39,8 @@
 	];
 
 	function onSubmit(data: any) {
-		goto(`/admin/dashboard`, { replaceState: true });
+		store.dispatch(login({ ...data, option: 'login' }));
+		// goto(`/admin/dashboard`, { replaceState: true });
 	}
 </script>
 

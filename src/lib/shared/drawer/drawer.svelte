@@ -9,6 +9,8 @@
 		faBacterium
 	} from '@fortawesome/free-solid-svg-icons/index.es';
 	import Icon from '../icon/icon.svelte';
+	import store from './../../../store';
+	import { logout } from '$lib/auth/store/slice';
 
 	let checked = false;
 	interface Items {
@@ -49,6 +51,10 @@
 	}
 	function offDrawer(): void {
 		checked = false;
+	}
+
+	function handleLogout(): void {
+		store.dispatch(logout());
 	}
 </script>
 
@@ -91,7 +97,8 @@
 				</li>
 			{/each}
 			<li class="mt-auto">
-				<a href="/" class="bordered no-underline hover:no-underline">
+				<!-- svelte-ignore a11y-missing-attribute -->
+				<a on:click={logout} class="bordered no-underline hover:no-underline">
 					<Icon icon={faSignOutAlt} />
 					Logout
 				</a>

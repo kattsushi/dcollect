@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Form from '$lib/shared/form/Form.svelte';
-	const form_name: string = 'LoginForm';
+	import { store, useSelector } from './../../store';
+	import { register } from './store';
+
+	const form_name: string = 'RegiserForm';
 	const fields = [
 		{
 			type: 'input',
@@ -40,7 +43,13 @@
 		}
 	];
 
-	function onSubmit(data: any) {}
+	function onSubmit(data: any) {
+		const { values, valid } = data;
+		console.log('data', data);
+		if (valid) {
+			store.dispatch(register({ ...values }));
+		}
+	}
 </script>
 
 <Form
