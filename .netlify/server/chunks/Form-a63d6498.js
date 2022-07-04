@@ -1,6 +1,8 @@
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -14,6 +16,7 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
@@ -21,6 +24,7 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_e70aca51 = require("./index-e70aca51.js");
+var import_clsx = __toESM(require("clsx"));
 const subscriber_queue = [];
 function writable(value, start = import_index_e70aca51.n) {
   let stop;
@@ -200,43 +204,6 @@ async function preprocessField(field, fields, values) {
   field = await fnc.call(null, field, fields, values);
   return field;
 }
-function toVal(mix) {
-  var k, y, str = "";
-  if (typeof mix === "string" || typeof mix === "number") {
-    str += mix;
-  } else if (typeof mix === "object") {
-    if (Array.isArray(mix)) {
-      for (k = 0; k < mix.length; k++) {
-        if (mix[k]) {
-          if (y = toVal(mix[k])) {
-            str && (str += " ");
-            str += y;
-          }
-        }
-      }
-    } else {
-      for (k in mix) {
-        if (mix[k]) {
-          str && (str += " ");
-          str += k;
-        }
-      }
-    }
-  }
-  return str;
-}
-function clsx() {
-  var i = 0, tmp, x, str = "";
-  while (i < arguments.length) {
-    if (tmp = arguments[i++]) {
-      if (x = toVal(tmp)) {
-        str && (str += " ");
-        str += x;
-      }
-    }
-  }
-  return str;
-}
 const Tag = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
   let { tag = "div" } = $$props;
   let { id = "" } = $$props;
@@ -247,7 +214,7 @@ const Tag = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) 
     $$bindings.id(id);
   if ($$props.classes === void 0 && $$bindings.classes && classes !== void 0)
     $$bindings.classes(classes);
-  return `${tag === "span" ? `<span${(0, import_index_e70aca51.b)("class", classes.length > 0 ? clsx(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</span>` : `${tag === "small" ? `<small${(0, import_index_e70aca51.b)("class", classes.length > 0 ? clsx(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</small>` : `${tag === "strong" ? `<strong${(0, import_index_e70aca51.b)("class", classes.length > 0 ? clsx(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</strong>` : `${tag === "label" ? `<label${(0, import_index_e70aca51.b)("for", id, 0)}${(0, import_index_e70aca51.b)("class", classes.length > 0 ? clsx(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</label>` : `<div${(0, import_index_e70aca51.b)("class", classes.length > 0 ? clsx(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</div>`}`}`}`}`;
+  return `${tag === "span" ? `<span${(0, import_index_e70aca51.b)("class", classes.length > 0 ? (0, import_clsx.default)(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</span>` : `${tag === "small" ? `<small${(0, import_index_e70aca51.b)("class", classes.length > 0 ? (0, import_clsx.default)(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</small>` : `${tag === "strong" ? `<strong${(0, import_index_e70aca51.b)("class", classes.length > 0 ? (0, import_clsx.default)(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</strong>` : `${tag === "label" ? `<label${(0, import_index_e70aca51.b)("for", id, 0)}${(0, import_index_e70aca51.b)("class", classes.length > 0 ? (0, import_clsx.default)(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</label>` : `<div${(0, import_index_e70aca51.b)("class", classes.length > 0 ? (0, import_clsx.default)(classes) : null, 0)}>${slots.default ? slots.default({}) : ``}</div>`}`}`}`}`;
 });
 const Input = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
   let { field = {} } = $$props;
@@ -268,7 +235,7 @@ const Input = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots
   (0, import_index_e70aca51.a)();
   if ($$props.field === void 0 && $$bindings.field && field !== void 0)
     $$bindings.field(field);
-  return `<input${(0, import_index_e70aca51.b)("type", field.attributes.type, 0)}${(0, import_index_e70aca51.b)("name", field.name, 0)}${(0, import_index_e70aca51.b)("value", field.value, 0)}${(0, import_index_e70aca51.b)("id", field.attributes.id ? field.attributes.id : field.name, 0)}${(0, import_index_e70aca51.b)("class", clsx(field.attributes.classes), 0)}${(0, import_index_e70aca51.b)("placeholder", field.attributes.placeholder, 0)} ${isRequired(field) ? "required" : ""} ${field.attributes.disabled ? "disabled" : ""} ${field.attributes.readonly ? "readonly" : ""}${(0, import_index_e70aca51.b)("min", field.attributes.min, 0)}${(0, import_index_e70aca51.b)("max", field.attributes.max, 0)}${(0, import_index_e70aca51.b)("step", field.attributes.step, 0)}${(0, import_index_e70aca51.b)("autocomplete", field.attributes.autocomplete, 0)}>`;
+  return `<input${(0, import_index_e70aca51.b)("type", field.attributes.type, 0)}${(0, import_index_e70aca51.b)("name", field.name, 0)}${(0, import_index_e70aca51.b)("value", field.value, 0)}${(0, import_index_e70aca51.b)("id", field.attributes.id ? field.attributes.id : field.name, 0)}${(0, import_index_e70aca51.b)("class", (0, import_clsx.default)(field.attributes.classes), 0)}${(0, import_index_e70aca51.b)("placeholder", field.attributes.placeholder, 0)} ${isRequired(field) ? "required" : ""} ${field.attributes.disabled ? "disabled" : ""} ${field.attributes.readonly ? "readonly" : ""}${(0, import_index_e70aca51.b)("min", field.attributes.min, 0)}${(0, import_index_e70aca51.b)("max", field.attributes.max, 0)}${(0, import_index_e70aca51.b)("step", field.attributes.step, 0)}${(0, import_index_e70aca51.b)("autocomplete", field.attributes.autocomplete, 0)}>`;
 });
 const Textarea = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
   let { field = {} } = $$props;

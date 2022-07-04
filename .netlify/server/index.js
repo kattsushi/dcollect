@@ -53,7 +53,6 @@ const Root = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots)
   let { props_0 = null } = $$props;
   let { props_1 = null } = $$props;
   let { props_2 = null } = $$props;
-  let { props_3 = null } = $$props;
   (0, import_index_e70aca51.s)("__svelte__", stores);
   afterUpdate(stores.page.notify);
   if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
@@ -68,8 +67,6 @@ const Root = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots)
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
-  if ($$props.props_3 === void 0 && $$bindings.props_3 && props_3 !== void 0)
-    $$bindings.props_3(props_3);
   {
     stores.page.set(page);
   }
@@ -80,11 +77,7 @@ ${components[1] ? `${(0, import_index_e70aca51.v)(components[0] || import_index_
     default: () => {
       return `${components[2] ? `${(0, import_index_e70aca51.v)(components[1] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
         default: () => {
-          return `${components[3] ? `${(0, import_index_e70aca51.v)(components[2] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {
-            default: () => {
-              return `${(0, import_index_e70aca51.v)(components[3] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_3 || {}), {}, {})}`;
-            }
-          })}` : `${(0, import_index_e70aca51.v)(components[2] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`}`;
+          return `${(0, import_index_e70aca51.v)(components[2] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {})}`;
         }
       })}` : `${(0, import_index_e70aca51.v)(components[1] || import_index_e70aca51.m, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {})}`}`;
     }

@@ -17,13 +17,13 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => Entity_1
+  default: () => Entity_entity
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e70aca51 = require("../../../../chunks/index-e70aca51.js");
+var import_index_e70aca51 = require("../../chunks/index-e70aca51.js");
 const Entity = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
   return `<h1>entity</h1>`;
 });
-const Entity_1 = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
+const Entity_entity = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
   return `${(0, import_index_e70aca51.v)(Entity, "Entity").$$render($$result, {}, {}, {})}`;
 });

@@ -28,28 +28,39 @@ const manifest = {
   assets: /* @__PURE__ */ new Set(["favicon.png", "manifest.json", "robots.txt", "svelte-welcome.png", "svelte-welcome.webp", "service-worker.js"]),
   mimeTypes: { ".png": "image/png", ".json": "application/json", ".txt": "text/plain", ".webp": "image/webp" },
   _: {
-    entry: { "file": "start-474b9ba2.js", "js": ["start-474b9ba2.js", "chunks/index-7ad9c0e7.js", "chunks/index-4a5881e3.js", "chunks/singletons-d1fb5791.js"], "css": [] },
+    entry: { "file": "start-5fd2822d.js", "js": ["start-5fd2822d.js", "chunks/index-9f689386.js", "chunks/index-ae227432.js", "chunks/singletons-d1fb5791.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => __toESM(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/1.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/2.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js"))),
       () => Promise.resolve().then(() => __toESM(require("./nodes/4.js"))),
-      () => Promise.resolve().then(() => __toESM(require("./nodes/5.js")))
+      () => Promise.resolve().then(() => __toESM(require("./nodes/6.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/3.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/7.js"))),
+      () => Promise.resolve().then(() => __toESM(require("./nodes/8.js")))
     ],
     routes: [
       {
         type: "page",
-        id: "admin@admin",
-        pattern: /^\/admin\/?$/,
+        id: "dashboard@admin",
+        pattern: /^\/dashboard\/?$/,
         names: [],
         types: [],
-        path: "/admin",
+        path: "/dashboard",
         shadow: null,
-        a: [0, 2, 3],
+        a: [2, 3],
+        b: [1]
+      },
+      {
+        type: "page",
+        id: "entity@entity",
+        pattern: /^\/entity\/?$/,
+        names: [],
+        types: [],
+        path: "/entity",
+        shadow: null,
+        a: [4, 5],
         b: [1]
       },
       {
@@ -60,7 +71,7 @@ const manifest = {
         types: [],
         path: "/",
         shadow: null,
-        a: [4, 5],
+        a: [6, 7],
         b: [1]
       },
       {
@@ -71,18 +82,7 @@ const manifest = {
         types: [],
         path: "/register",
         shadow: null,
-        a: [4, 6],
-        b: [1]
-      },
-      {
-        type: "page",
-        id: "admin/entity",
-        pattern: /^\/admin\/entity\/?$/,
-        names: [],
-        types: [],
-        path: "/admin/entity",
-        shadow: null,
-        a: [0, 7, 8],
+        a: [6, 8],
         b: [1]
       }
     ],

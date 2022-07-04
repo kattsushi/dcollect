@@ -17,13 +17,13 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => _layout
+  default: () => _layout_entity
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e70aca51 = require("../../../../chunks/index-e70aca51.js");
-var import_drawer_73b3268a = require("../../../../chunks/drawer-73b3268a.js");
-const _layout = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
-  return `${(0, import_index_e70aca51.v)(import_drawer_73b3268a.D, "Drawer").$$render($$result, {}, {}, {
+var import_index_e70aca51 = require("../../chunks/index-e70aca51.js");
+var import_drawer_e77a4ce7 = require("../../chunks/drawer-e77a4ce7.js");
+const _layout_entity = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
+  return `${(0, import_index_e70aca51.v)(import_drawer_e77a4ce7.D, "Drawer").$$render($$result, {}, {}, {
     default: () => {
       return `
       ${slots.default ? slots.default({}) : ``}`;

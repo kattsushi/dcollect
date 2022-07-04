@@ -22,7 +22,8 @@ __export(stdin_exports, {
 });
 module.exports = __toCommonJS(stdin_exports);
 var import_index_e70aca51 = require("../../chunks/index-e70aca51.js");
-var import_Form_ece6bb0a = require("../../chunks/Form-ece6bb0a.js");
+var import_Form_a63d6498 = require("../../chunks/Form-a63d6498.js");
+var import_clsx = require("clsx");
 const form_name = "LoginForm";
 function onSubmit(data) {
 }
@@ -63,7 +64,7 @@ const Register = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, sl
       }
     }
   ];
-  return `${(0, import_index_e70aca51.v)(import_Form_ece6bb0a.F, "Form").$$render($$result, {
+  return `${(0, import_index_e70aca51.v)(import_Form_a63d6498.F, "Form").$$render($$result, {
     form_name,
     fields,
     submitButtonText: "Register",

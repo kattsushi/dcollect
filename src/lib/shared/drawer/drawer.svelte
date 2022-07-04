@@ -15,12 +15,12 @@ import Icon from '../icon/icon.svelte';
     {
       name: 'Dashboard',
       icon: faBarsProgress,
-      href: '/admin'
+      href: '/dashboard'
     },
     {
       name: 'Entities',
       icon: faBacterium,
-      href: '/admin/entity'
+      href: '/entity'
     },
     // {
     //   name: 'Posts',
@@ -84,7 +84,7 @@ import Icon from '../icon/icon.svelte';
         </li>
       {/each}
       <li class="mt-auto">
-        <a class="bordered no-underline hover:no-underline">
+        <a href="/" class="bordered no-underline hover:no-underline">
           <Icon icon={faSignOutAlt}/>
           Logout
         </a>

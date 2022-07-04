@@ -235,7 +235,7 @@ const Sidebar = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slo
     return `<li><a${(0, import_index_e70aca51.b)("href", item.href, 0)}>${(0, import_index_e70aca51.v)(Icon, "Icon").$$render($$result, { icon: item.icon }, {}, {})}</a>
         </li>`;
   })}</ul>
-    <ul class="${"mt-auto"}"><li><a>
+    <ul class="${"mt-auto"}"><li><a href="${"/"}">
           ${(0, import_index_e70aca51.v)(Icon, "Icon").$$render($$result, { icon: faSignOutAlt }, {}, {})}</a></li></ul></div></div>`;
 });
 const Drawer = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
@@ -244,12 +244,12 @@ const Drawer = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slot
     {
       name: "Dashboard",
       icon: faBarsProgress,
-      href: "/admin"
+      href: "/dashboard"
     },
     {
       name: "Entities",
       icon: faBacterium,
-      href: "/admin/entity"
+      href: "/entity"
     }
   ];
   return `<div class="${"drawer"}"><input id="${"my-drawer-3"}" type="${"checkbox"}" class="${"drawer-toggle"}"${(0, import_index_e70aca51.b)("checked", checked, 1)}>
@@ -268,7 +268,7 @@ const Drawer = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slot
             ${(0, import_index_e70aca51.e)(item.name)}</a>
         </li>`;
   })}
-      <li class="${"mt-auto"}"><a class="${"bordered no-underline hover:no-underline"}">${(0, import_index_e70aca51.v)(Icon, "Icon").$$render($$result, { icon: faSignOutAlt }, {}, {})}
+      <li class="${"mt-auto"}"><a href="${"/"}" class="${"bordered no-underline hover:no-underline"}">${(0, import_index_e70aca51.v)(Icon, "Icon").$$render($$result, { icon: faSignOutAlt }, {}, {})}
           Logout
         </a></li></ul></div></div>`;
 });

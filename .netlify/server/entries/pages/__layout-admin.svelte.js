@@ -17,15 +17,16 @@ var __copyProps = (to, from, except, desc) => {
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var stdin_exports = {};
 __export(stdin_exports, {
-  default: () => Index_admin,
-  prerender: () => prerender
+  default: () => _layout_admin
 });
 module.exports = __toCommonJS(stdin_exports);
-var import_index_e70aca51 = require("../../../chunks/index-e70aca51.js");
-const Dashboard = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
-  return `<h1>hello dashboard</h1>`;
-});
-const prerender = true;
-const Index_admin = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
-  return `${(0, import_index_e70aca51.v)(Dashboard, "Dashboard").$$render($$result, {}, {}, {})}`;
+var import_index_e70aca51 = require("../../chunks/index-e70aca51.js");
+var import_drawer_e77a4ce7 = require("../../chunks/drawer-e77a4ce7.js");
+const _layout_admin = (0, import_index_e70aca51.c)(($$result, $$props, $$bindings, slots) => {
+  return `${(0, import_index_e70aca51.v)(import_drawer_e77a4ce7.D, "Drawer").$$render($$result, {}, {}, {
+    default: () => {
+      return `
+      ${slots.default ? slots.default({}) : ``}`;
+    }
+  })}`;
 });

@@ -16,7 +16,7 @@ import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/index.es';
     </ul>
     <ul class="mt-auto">
       <li>
-        <a>
+        <a href="/">
           <!-- svelte-ignore missing-declaration -->
           <Icon icon={faSignOutAlt}/>
         </a>
