@@ -2,6 +2,7 @@
   import Logo from '../logo/logo.svelte';
 	import Navbar from '../navbar/navbar.svelte';
   import Sidebar from '../sidebar/sidebar.svelte';
+  import { page } from '$app/stores';
   import { faBarsProgress, faSignOutAlt, faBacterium } from '@fortawesome/free-solid-svg-icons/index.es';
 import Icon from '../icon/icon.svelte';
 
@@ -15,18 +16,18 @@ import Icon from '../icon/icon.svelte';
     {
       name: 'Dashboard',
       icon: faBarsProgress,
-      href: '/dashboard'
+      href: '/admin/dashboard'
     },
     {
       name: 'Entities',
       icon: faBacterium,
-      href: '/entity'
+      href: '/admin/entities'
     },
-    // {
-    //   name: 'Posts',
-    //   icon: faBarsProgress,
-    //   href: '/posts'
-    // },
+    {
+      name: 'Entitie Detail',
+      icon: faBarsProgress,
+      href: '/admin/entities/1'
+    },
     // {
     //   name: 'Pages',
     //   icon: faBarsProgress,
@@ -65,17 +66,11 @@ import Icon from '../icon/icon.svelte';
 	</div>
 	<div class="drawer-side">
 		<label for="my-drawer-3" class="drawer-overlay" />
-		<ul class="menu p-4 overflow-y-auto w-80 bg-base-100 rounded-box mt-2 mb-2">
+		<ul class="menu p-3 overflow-y-auto w-80 bg-base-100 rounded-box mt-20 ml-5 mr-5 mb-2 {checked ? '' : 'rounded-none'}">
 			<!-- Sidebar content here -->
-			<li>
-				<!-- svelte-ignore a11y-missing-attribute -->
-				<a on:click={offDrawer} class="btn btn-ghost normal-case text-xl drawer-button hover:no-underline no-underline">
-          <Logo logo="dCollect"/>
-        </a>
-			</li>
       {#each sidebarItems as item}
-        <li>
-          <a class="bordered no-underline hover:no-underline" href={item.href}>
+        <li class="mt-2">
+          <a class:active={$page.url.pathname.includes(item.href)} class="bordered no-underline hover:no-underline" href={item.href}>
             {#if item.icon}
               <Icon icon={item.icon}/>
             {/if}

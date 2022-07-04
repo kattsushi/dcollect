@@ -30,7 +30,7 @@
   ];
 
   function onSubmit(data: any) {
-    goto(`/dashboard`, { replaceState: true }) 
+    goto(`/admin/dashboard`, { replaceState: true }) 
   }
 </script>
 <Form
