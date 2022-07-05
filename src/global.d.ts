@@ -7,3 +7,4 @@ interface ImportMetaEnv {
 	GUN_EPRIV_KEY: string;
 	GUN_TOKEN: string;
 }
+declare module '@fortawesome/free-solid-svg-icons/index.es';

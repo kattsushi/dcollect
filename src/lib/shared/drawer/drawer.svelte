@@ -9,9 +9,11 @@
 		faBacterium
 	} from '@fortawesome/free-solid-svg-icons/index.es';
 	import Icon from '../icon/icon.svelte';
-	import store from './../../../store';
+	import store, { useSelector } from './../../../store';
 	import { logout } from '$lib/auth/store/slice';
+	import { authSelectors } from '$lib/auth/store/selectors';
 
+	$: currentUser = useSelector(authSelectors.currentUser, (user: any) => (currentUser = user));
 	let checked = false;
 	interface Items {
 		name: string;
@@ -62,7 +64,7 @@
 	<input id="my-drawer-3" type="checkbox" class="drawer-toggle" bind:checked />
 	<div class="drawer-content flex flex-col p-2">
 		<!-- Navbar -->
-		<Navbar on:toogleDrawer={toogleDrawer} />
+		<Navbar user={currentUser} on:toogleDrawer={toogleDrawer} />
 
 		<div class="flex flex-row h-full mb-2">
 			<div class="basis-2">

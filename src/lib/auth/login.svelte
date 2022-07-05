@@ -1,21 +1,12 @@
 <script lang="ts">
-	import { todoSelectors, login } from './store';
-
-	import { store, useSelector } from './../../store';
-
-	$: todoList = useSelector(todoSelectors.todos, (newList: any) => (todoList = newList));
-	$: todoListLoading = useSelector(
-		todoSelectors.loading,
-		(newLoading: any) => (todoListLoading = newLoading)
-	);
-
 	import Form from '$lib/shared/form/Form.svelte';
+	import store from './../../../src/store';
+	import { login } from './store/actions';
 	const form_name: string = 'LoginForm';
 	const fields = [
 		{
 			type: 'input',
-			name: 'color',
-
+			name: 'email',
 			attributes: {
 				classes: ['form-control', 'input', 'input-bordered', 'w-full'],
 				type: 'text',
@@ -39,8 +30,10 @@
 	];
 
 	function onSubmit(data: any) {
-		store.dispatch(login({ ...data, option: 'login' }));
-		// goto(`/admin/dashboard`, { replaceState: true });
+		const { values, valid } = data;
+		if (valid) {
+			store.dispatch(login({ ...values, option: 'login' }));
+		}
 	}
 </script>
 

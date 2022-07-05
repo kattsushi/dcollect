@@ -1,5 +1,5 @@
 import { USERS } from '$lib/entity/entities.const';
-import { encryptData } from '$lib/gun-db/crypto';
+import { decryptData, encryptData } from '$lib/gun-db/crypto';
 import { gun, user } from '$lib/gun-db/gun';
 
 export const generateGenericUserData = (date: any, username: string, email: string) => {
@@ -15,27 +15,23 @@ export const generateGenericUserData = (date: any, username: string, email: stri
 };
 
 export const createUser = async (username: string, email: string) => {
-	const newUserId = user.is.epub;
+	return new Promise(async (resolve, reject) => {
+		const newUserId = user.is.epub;
+		const genericUserData = generateGenericUserData(new Date().getTime(), username, email);
+		const userData = await encryptData({
+			uuid: newUserId,
+			username,
+			...genericUserData
+		});
+		const newUser = gun.get(newUserId).put({
+			data: userData
+		});
 
-	const genericUserData = generateGenericUserData(new Date().getTime(), username, email);
+		newUser.once(async (_user) => {
+			const user = await decryptData(_user?.data);
+			resolve(user);
+		});
 
-	console.log('before encryptData', {
-		uuid: newUserId,
-		username,
-		...genericUserData
+		gun.get(USERS).set(newUser);
 	});
-	const userData = await encryptData({
-		uuid: newUserId,
-		username,
-		...genericUserData
-	});
-	const newUser = gun.get(newUserId).put({
-		data: userData
-	});
-
-	newUser.once(async (_user) => {
-		console.log('createUser', _user);
-	});
-
-	gun.get(USERS).set(newUser);
 };

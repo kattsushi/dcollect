@@ -5,11 +5,12 @@ import { handleAuthResponse } from '$lib/gun-db/helpers';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createUser } from '../services/user';
 
-const setCurrentUser = (getuser: Function) => {
-	gun.get(user?.is?.epub).once(async (_user) => {
-		console.log('setCurrentUser', _user);
-		const user = await decryptData(_user?.data);
-		getuser(user);
+const setCurrentUser = () => {
+	return new Promise(async (resolve, reject) => {
+		gun.get(user.is.epub).once(async (_user) => {
+			const user = await decryptData(_user?.data);
+			resolve(user);
+		});
 	});
 };
 
@@ -26,12 +27,15 @@ export const login = createAsyncThunk(
 		return new Promise((resolve, reject) => {
 			user.auth(email, password, async (response: any) => {
 				const res: string = handleAuthResponse(response);
-				if (res !== 'errors') {
-					option === 'create-user'
-						? await createUser(username, email)
-						: setCurrentUser((user: any) => {
-								resolve(response);
-						  });
+				1;
+				if (res !== 'error') {
+					if (option === 'create-user') {
+						const user: any = await createUser(username, email);
+						resolve(user);
+					} else {
+						const user: any = await setCurrentUser();
+						resolve(user);
+					}
 					goto(`/admin/dashboard`, { replaceState: true });
 				} else {
 					reject(res);

@@ -45,7 +45,6 @@
 
 	function onSubmit(data: any) {
 		const { values, valid } = data;
-		console.log('data', data);
 		if (valid) {
 			store.dispatch(register({ ...values }));
 		}
