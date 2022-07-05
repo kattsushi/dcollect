@@ -1,6 +1,6 @@
-import Gun from 'gun/gun';
-import 'gun/sea';
-import 'gun/axe';
+import Gun from 'gun';
+import 'gun/sea.js';
+import 'gun/axe.js';
 
 import { variables } from '$lib/variables';
 

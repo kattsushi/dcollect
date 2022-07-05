@@ -1,6 +1,7 @@
 import { goto } from '$app/navigation';
 import { user } from '$lib/gun-db/gun';
-import { createSlice } from '@reduxjs/toolkit';
+import * as toolkitRaw from '@reduxjs/toolkit';
+const { createSlice } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
 import { login } from './actions';
 
 // Define initial state, slice name, and reducer

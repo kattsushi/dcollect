@@ -1,4 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
+import * as toolkitRaw from '@reduxjs/toolkit';
+const { configureStore } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
 import authSlice from '$lib/auth/store';
 import enititySlice from '$lib/entity/store';
 

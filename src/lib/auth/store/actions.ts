@@ -2,7 +2,8 @@ import { goto } from '$app/navigation';
 import { decryptData } from '$lib/gun-db/crypto';
 import { gun, user } from '$lib/gun-db/gun';
 import { handleAuthResponse } from '$lib/gun-db/helpers';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import * as toolkitRaw from '@reduxjs/toolkit';
+const { createAsyncThunk } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
 import { createUser } from '../services/user';
 
 const setCurrentUser = () => {
