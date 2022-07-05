@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Form from '$lib/shared/form/Form.svelte';
-	import { store, useSelector } from './../../store';
+	import { store, useSelector } from '$lib/store';
 	import { register } from './store';
 
 	const form_name: string = 'RegiserForm';

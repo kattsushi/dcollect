@@ -9,7 +9,7 @@
 		faBacterium
 	} from '@fortawesome/free-solid-svg-icons/index.es';
 	import Icon from '../icon/icon.svelte';
-	import store, { useSelector } from './../../../store';
+	import store, { useSelector } from '$lib/store';
 	import { logout } from '$lib/auth/store/slice';
 	import { authSelectors } from '$lib/auth/store/selectors';
 
@@ -100,7 +100,7 @@
 			{/each}
 			<li class="mt-auto">
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<a on:click={logout} class="bordered no-underline hover:no-underline">
+				<a on:click|preventDefault={logout} class="bordered no-underline hover:no-underline">
 					<Icon icon={faSignOutAlt} />
 					Logout
 				</a>

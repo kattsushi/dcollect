@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Form from '$lib/shared/form/Form.svelte';
-	import store from './../../../src/store';
+	import store from '$lib/store';
 	import { login } from './store/actions';
 	const form_name: string = 'LoginForm';
 	const fields = [

@@ -2,7 +2,7 @@
 	import Icon from '../icon/icon.svelte';
 	import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/index.es';
 	import { logout } from '$lib/auth/store/slice';
-	import store from './../../../store';
+	import store from '$lib/store';
 
 	export let sidebarItems: any[];
 
@@ -25,7 +25,7 @@
 		<ul class="mt-auto">
 			<li>
 				<!-- svelte-ignore a11y-missing-attribute -->
-				<a on:click={handleLogout}>
+				<a on:click|preventDefault={handleLogout}>
 					<!-- svelte-ignore missing-declaration -->
 					<Icon icon={faSignOutAlt} />
 				</a>

@@ -6,15 +6,6 @@ import * as toolkitRaw from '@reduxjs/toolkit';
 const { createAsyncThunk } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
 import { createUser } from '../services/user';
 
-const setCurrentUser = () => {
-	return new Promise(async (resolve, reject) => {
-		gun.get(user.is.epub).once(async (_user) => {
-			const user = await decryptData(_user?.data);
-			resolve(user);
-		});
-	});
-};
-
 interface AuthPayload {
 	username: string;
 	email: string;
@@ -22,9 +13,22 @@ interface AuthPayload {
 	option?: string;
 }
 
+export const setCurrentUser = createAsyncThunk('auth/setCurrentUser', async () => {
+	return new Promise(async (resolve, reject) => {
+		if (user?.is?.epub) {
+			gun.get(user.is.epub).once(async (_user) => {
+				const user = await decryptData(_user?.data);
+				resolve(user);
+			});
+		} else {
+			reject(null);
+		}
+	});
+});
+
 export const login = createAsyncThunk(
 	'auth/login',
-	async ({ username, email, password, option }: AuthPayload, thunkAPI) => {
+	async ({ username, email, password, option }: AuthPayload, { dispatch }) => {
 		return new Promise((resolve, reject) => {
 			user.auth(email, password, async (response: any) => {
 				const res: string = handleAuthResponse(response);
@@ -34,10 +38,9 @@ export const login = createAsyncThunk(
 						const user: any = await createUser(username, email);
 						resolve(user);
 					} else {
-						const user: any = await setCurrentUser();
-						resolve(user);
+						dispatch(setCurrentUser());
 					}
-					goto(`/admin/dashboard`, { replaceState: true });
+					goto(`/admin`, { replaceState: true });
 				} else {
 					reject(res);
 				}

@@ -2,12 +2,13 @@ import { goto } from '$app/navigation';
 import { user } from '$lib/gun-db/gun';
 import * as toolkitRaw from '@reduxjs/toolkit';
 const { createSlice } = ((toolkitRaw as any).default ?? toolkitRaw) as typeof toolkitRaw;
-import { login } from './actions';
+import { login, setCurrentUser } from './actions';
 
 // Define initial state, slice name, and reducer
 
 interface UsersState {
 	user: {};
+	isLoggedIn: boolean;
 	loading: 'idle' | 'pending' | 'succeeded' | 'failed';
 	errorMessage: null | string;
 }
@@ -15,6 +16,7 @@ interface UsersState {
 const initialState: UsersState = {
 	user: {},
 	loading: 'idle',
+	isLoggedIn: false,
 	errorMessage: null
 };
 
@@ -52,6 +54,18 @@ const authSlice = createSlice({
 		builder.addCase(login.rejected, (state, action) => {
 			state.loading = 'failed';
 			state.errorMessage = action.payload as string;
+		});
+
+		builder.addCase(setCurrentUser.fulfilled, (state, { payload }) => {
+			state.errorMessage = null;
+			state.user = payload;
+			state.isLoggedIn = true;
+		});
+
+		builder.addCase(setCurrentUser.rejected, (state, { payload }) => {
+			state.errorMessage = payload as string;
+			state.isLoggedIn = false;
+			state.user = {};
 		});
 	}
 });
